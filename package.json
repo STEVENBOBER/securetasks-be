@@ -1,10 +1,19 @@
 {
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.46.0",
     "@prisma/client": "^6.11.1",
     "bcryptjs": "^3.0.2",
-    "dotenv": "^17.0.1",
     "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
-    "prisma": "^6.11.1"
+    "prisma": "^6.11.1",
+    "validator": "^13.15.15"
+  },
+  "scripts": {
+    "start": "dotenvx run -- node server.js"
+  },
+  "devDependencies": {
+    "semgrep": "^0.0.1"
   }
 }
