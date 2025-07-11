@@ -1,13 +1,15 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const { PrismaClient } = require('@prisma/client');
+const helmet = require('helmet');
+
+const { apiLimiter } = require('./src/middlewares/rateLimiter');
 const authRoutes = require('./src/routes/authRoutes');
 const taskRoutes = require('./src/routes/taskRoutes');
 
-
-dotenv.config();
-const prisma = new PrismaClient();
 const app = express();
+
+// app.use(helmet.contentSecurityPolicy.getDefaultDirectives());
+app.use(helmet());
+app.use('/api/', apiLimiter);
 
 app.use(express.json());
 

@@ -1,16 +1,31 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { PrismaClient } = require('@prisma/client');
 const generateToken = require('../utils/generateToken');
+
+const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 exports.register = async (req, res) => {
     const { email, password } = req.body;
-    const hashed = await bcrypt.hash(password, 10);
-    const user = await prisma.user.create({
-        data: { email, password: hashed }
-    });
-    res.json({ token: generateToken(user.id) });
+
+
+    try {
+        const hashed = await bcrypt.hash(password, 10);
+
+        const user = await prisma.user.create({
+            data: { email, password: hashed }
+        });
+
+        const token = generateToken(user.id);
+
+        res.status(201).json({ token });
+
+    } catch (err) {
+        console.error('Registration error:', err);
+        return res
+            .status(500)
+            .json({ message: 'Something went wrong while creating your account.' });
+    }
 };
 
 exports.login = async (req, res) => {
