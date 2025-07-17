@@ -32,7 +32,7 @@ Notes: This demo is in progress.
 | A01: Broken Access Control         | ✅ `protect` & `allowRoles` middleware |
 | A02: Cryptographic Failures        | ✅ bcrypt hashing, JWT with secret and expiration |
 | A03: Injection                     | ✅ Prisma param queries + input validation |
-| A04: Insecure Design               | ✅ STRIDE threat model in `security.md` |
+| A04: Insecure Design               | ⏳ STRIDE threat model in `security.md` |
 | A05: Security Misconfiguration     | ✅ Helmet, rate limiter, CORS, CSRF (TBD) |
 | A06: Vulnerable Components         | ✅ Semgrep + CodeQL CI scanning |
 | A07: Identification/Auth Failures  | ✅ Password policy, login throttling |
@@ -60,3 +60,25 @@ Notes: This demo is in progress.
 
 ```bash
 git clone https://github.com/yourname/securetasks-be.git
+```
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Set up environment
+```bash
+DATABASE_URL=postgresql://user:pass@localhost:5432/securetasks
+JWT_SECRET=your_strong_secret
+PORT=3001
+```
+
+### 4. Initialize the DB
+```bash
+npx prisma migrate dev --name init
+```
+
+### 5. Start the server
+```bash
+npm run start
+```
