@@ -4,7 +4,9 @@
 
 SecureTasks is a Node.js and Express-based REST API for managing tasks with built-in authentication, role-based access control, and OWASP Top 10 security mitigations.
 
-This project was designed as an application security demo to showcase secure API design principles.
+This project was designed as an application security demo to showcase secure API design principles. 
+
+Notes: This demo is in progress. 
 
 ---
 
