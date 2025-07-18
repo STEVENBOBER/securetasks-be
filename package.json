@@ -11,9 +11,12 @@
     "validator": "^13.15.15"
   },
   "scripts": {
-    "start": "dotenvx run -- node server.js"
+    "start": "dotenvx run -- node server.js",
+    "test": "jest"
   },
   "devDependencies": {
-    "semgrep": "^0.0.1"
+    "jest": "^30.0.4",
+    "semgrep": "^0.0.1",
+    "supertest": "^7.1.3"
   }
 }
