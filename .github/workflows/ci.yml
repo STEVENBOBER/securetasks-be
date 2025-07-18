@@ -16,7 +16,7 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: TempPass_8427!
           POSTGRES_DB: postgres
         ports:
           - 5432:5432
@@ -27,7 +27,7 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgresql://postgres:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/postgres
+      DATABASE_URL: postgresql://postgres:TempPass_8427!@localhost:5432/postgres
       JWT_SECRET: ${{ secrets.JWT_SECRET }}
       NODE_ENV: test
 
